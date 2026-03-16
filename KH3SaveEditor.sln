@@ -76,8 +76,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WindowsStoreSubmission", "WindowsStoreSubmission\WindowsStoreSubmission.wapproj", "{080A374C-D430-4FCB-96B8-889FDEBF58F2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.LibPersona3", "KHSave.LibPersona3\KHSave.LibPersona3.csproj", "{17C5019E-53C9-4566-BAA0-9E2E139D6529}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KHSave.SaveEditor.Persona3", "KHSave.SaveEditor.Persona3\KHSave.SaveEditor.Persona3.csproj", "{EA92AA97-BC63-4691-8483-39E9643D2086}"
