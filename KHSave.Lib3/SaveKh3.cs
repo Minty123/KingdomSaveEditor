@@ -118,7 +118,8 @@ namespace KHSave.Lib3
 
         public static bool IsValid(Stream stream) =>
             SaveKh3.IsValidInternal(stream) ||
-            SaveKh3u109.IsValidInternal(stream);
+            SaveKh3u109.IsValidInternal(stream) ||
+            SaveKh3PC.IsValidInternal(stream);
 
         public static ISaveKh3 Read(Stream stream)
         {
@@ -126,6 +127,8 @@ namespace KHSave.Lib3
                 return ReadInternal(stream);
             if (SaveKh3u109.IsValidInternal(stream))
                 return SaveKh3u109.ReadInternal(stream);
+            if (SaveKh3PC.IsValidInternal(stream))
+                return SaveKh3PC.ReadInternal(stream);
 
             throw new InvalidDataException("Input not recognized as a valid or supported Kingdom Hearts III save game.");
         }

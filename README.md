@@ -10,7 +10,7 @@
 | Kingdom Hearts: Birth By Sleep | PSP/PS3/PS4/PC  | FM     |
 | Kingdom Hearts: Dream Drop Distance | 3DS/PC     | All    |
 | Kingdom Hearts 0.2             | PS4             | All    |
-| Kingdom Hearts III             | PS4 only        | All    |
+| Kingdom Hearts III             | PS4/PC          | All    |
 | Final Fantasy VII Remake       | PS4/PC          | All    |
 | Persona 5, Persona 5 Royal     | PS3/PS4         | US/EU  |
 
@@ -48,6 +48,7 @@ If you want to add missing names, improve it or add new offsets, just clone the 
 * TALESIOFIFREAK for the ability list and DLC inventory for Kingdom Hearts III
 * Silvercam for the list of gummiship inventory items for Kingdom Hearts III
 * Luseu to have provided the majority of Final Fantasy VII Remake offsets
+* fungualtissue1230 for the code to support the PC versions of Kingdom Hearts III
 * All the sponsors / donators who contributed so far
 
 ## License
