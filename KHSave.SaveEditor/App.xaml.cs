@@ -68,7 +68,6 @@ namespace KHSave.SaveEditor
                 .RegisterSingleton<IFileDialogManager, FileDialogManager>()
                 .RegisterInstance<IApplicationStartup>(new ApplicationStartup(e.Args))
                 .RegisterSingleton<IAlertMessage, AlertMessage>()
-                .RegisterSingleton<IUpdater, UpdaterService>()
                 .RegisterSingleton<IAppIdentity, DesktopAppIdentity>()
                 ;
 
@@ -77,7 +76,6 @@ namespace KHSave.SaveEditor
 
         private static void CaptureException(Exception ex)
         {
-            ReporterService.Instance.SendCrashReport(ex);
             MessageBox.Show(
                 $"An unhandled error has occurred:\n{ex.Message}\n\n{ex.StackTrace}",
                 "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);

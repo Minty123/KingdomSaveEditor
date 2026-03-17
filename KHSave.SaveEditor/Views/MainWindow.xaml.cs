@@ -15,12 +15,10 @@ namespace KHSave.SaveEditor.Views
     public partial class MainWindow : Window
     {
         private readonly MainWindowViewModel context;
-        private readonly IUpdater updater;
 
         public MainWindow(
             IWindowManager windowManager,
             IApplicationStartup applicationDebug,
-            IUpdater updater,
             MainWindowViewModel vm)
         {
             InitializeComponent();
@@ -38,12 +36,6 @@ namespace KHSave.SaveEditor.Views
                 File.Exists(applicationDebug.StartupFileName))
                 context.Open(applicationDebug.StartupFileName);
 
-            this.updater = updater;
-        }
-
-        private void Window_Loaded(object sender, EventArgs e)
-        {
-            Task.Run(() => updater.AutomaticallyCheckLastVersionAsync());
         }
 
         private void Window_Drop(object sender, DragEventArgs e)

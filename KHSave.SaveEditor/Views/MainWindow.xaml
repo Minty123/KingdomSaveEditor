@@ -10,7 +10,7 @@
         xmlns:kh3="clr-namespace:KHSave.SaveEditor.Kh3;assembly=KHSave.SaveEditor.Kh3"
         xmlns:ext="clr-namespace:Xe.Tools.Wpf.Extensions;assembly=Xe.Tools.Wpf"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="540" Width="580" Loaded="Window_Loaded"
+        Title="{Binding Title}" Height="540" Width="580"
         Drop="Window_Drop" AllowDrop="True">
     <Window.InputBindings>
         <KeyBinding Key="O" Modifiers="Control" Command="{Binding OpenCommand}"/>
@@ -54,12 +54,6 @@
                 <CheckBox
                     Content="_Advanced mode"
                     IsChecked="{Binding IsAdvancedMode}"/>
-                <CheckBox
-                    Content="Automatic _Update check"
-                    IsChecked="{Binding IsUpdateCheckingEnabled}"/>
-                <CheckBox
-                    Content="Anonymous reporting"
-                    IsChecked="{Binding IsAnonymousReporting}"/>
             </MenuItem>
             <MenuItem Header="_Info">
                 <MenuItem IsEnabled="False">
@@ -74,14 +68,6 @@
                     </MenuItem.Header>
                 </MenuItem>
                 <Separator/>
-                <MenuItem
-                    Header="Get _latest version"
-                    Command="{Binding GetLatestVersionCommand}"
-                    Visibility="{Binding UpdateVisibility}">
-                    <MenuItem.Icon>
-                        <Image Source="{StaticResource Download_16x}"/>
-                    </MenuItem.Icon>
-                </MenuItem>
                 <MenuItem Header="Go to Home Page" Command="{Binding OpenLinkCommand}"
                     CommandParameter="https://kingdomsaveeditor.xee.dev">
                     <MenuItem.Icon>
@@ -102,12 +88,6 @@
                 </MenuItem>
                 <MenuItem Header="Join Discord server" Command="{Binding OpenLinkCommand}"
                     CommandParameter="https://kse-discord.xee.dev">
-                    <MenuItem.Icon>
-                        <Image Source="{StaticResource WebURL_16x}"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Read privacy policy" Command="{Binding OpenLinkCommand}"
-                    CommandParameter="https://kingdomsaveeditor.xee.dev/#privacy">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource WebURL_16x}"/>
                     </MenuItem.Icon>

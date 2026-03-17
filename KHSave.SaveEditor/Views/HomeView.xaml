@@ -127,27 +127,6 @@
                     </TextBlock>
                 </StackPanel>
             </Grid>
-            <StackPanel Margin="{StaticResource labelMargin}">
-                <TextBlock Text="Funders:"/>
-                <WrapPanel Name="patronList"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock
-                    Margin="{StaticResource labelMargin}"
-                    TextWrapping="Wrap"
-                    Text="{Binding SponsorHeaderInfo}"/>
-                <ProgressBar
-                    Visibility="Collapsed"
-                    Margin="0 0 0 3"
-                    Height="10"
-                    Minimum="{Binding SponsorStartGoal}"
-                    Maximum="{Binding SponsorEndGoal}"
-                    Value="{Binding SponsorCount}"/>
-                <TextBlock
-                    Margin="{StaticResource labelMargin}"
-                    TextWrapping="Wrap"
-                    Text="{Binding SponsorGoalDetails}"/>
-            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

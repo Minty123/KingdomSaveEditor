@@ -54,10 +54,8 @@ namespace KHSave.SaveEditor.ViewModels
         private readonly IFileDialogManager fileDialogManager;
         private readonly IWindowManager windowManager;
         private readonly IAlertMessage alertMessage;
-        private readonly IUpdater updater;
         private readonly IAppIdentity _appIdentity;
         private readonly ContentFactory contentFactory;
-        private readonly ReporterService reporterService;
         private object dataContext;
         private ContentType _saveKind;
 
@@ -133,32 +131,10 @@ namespace KHSave.SaveEditor.ViewModels
             }
         }
 
-        public bool IsUpdateCheckingEnabled
-        {
-            get => updater.IsAutomaticUpdatesEnabled;
-            set
-            {
-                updater.IsAutomaticUpdatesEnabled = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public bool IsAnonymousReporting
-        {
-            get => Global.AnonymousReporting;
-            set
-            {
-                if (value == true)
-                    reporterService.DeleteCookies();
-                Global.AnonymousReporting = value;
-            }
-        }
-
         public MainWindowViewModel(
             IFileDialogManager fileDialogManager,
             IWindowManager windowManager,
             IAlertMessage alertMessage,
-            IUpdater updater,
             IAppIdentity appIdentity,
             ContentFactory contentFactory,
             HomeViewModel homeContext)
@@ -166,10 +142,8 @@ namespace KHSave.SaveEditor.ViewModels
             this.fileDialogManager = fileDialogManager;
             this.windowManager = windowManager;
             this.alertMessage = alertMessage;
-            this.updater = updater;
             _appIdentity = appIdentity;
             this.contentFactory = contentFactory;
-            this.reporterService = ReporterService.Instance;
             HomeContext = homeContext;
 
             OpenCommand = new RelayCommand(o => fileDialogManager.Open(stream => Open(stream)));
@@ -234,19 +208,6 @@ namespace KHSave.SaveEditor.ViewModels
                     });
             }), x => (IsFileOpen || _isProcess) && IsTransferSupported());
             ExitCommand = new RelayCommand(x => Window.Close());
-
-            GetLatestVersionCommand = new RelayCommand(x =>
-            {
-                Task.Run(async () =>
-                {
-                    var found = await updater.ForceCheckLastVersionAsync();
-                    if (found == false)
-                    {
-                        Application.Current.Dispatcher.Invoke(() =>
-                            alertMessage.Info("You are up to date :)", "Check update"));
-                    }
-                });
-            });
 
             OpenLinkCommand = new RelayCommand(url => Process.Start(new ProcessStartInfo()
             {
@@ -489,7 +450,6 @@ namespace KHSave.SaveEditor.ViewModels
         {
             try
             {
-                reporterService.SendGameName(contentType.ToString());
                 contentFactory.LoadIconPack(contentType);
                 var contentResponse = contentFactory.Factory(contentType);
 
@@ -507,7 +467,6 @@ namespace KHSave.SaveEditor.ViewModels
             }
             catch (Exception ex)
             {
-                ReporterService.Instance.SendCrashReport(ex);
                 MessageBox.Show(
                     $"An unhandled error has occurred:\n{ex.Message}\n\n{ex.StackTrace}",
                     "Fatal error", MessageBoxButton.OK, MessageBoxImage.Error);
