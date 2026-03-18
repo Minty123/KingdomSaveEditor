@@ -71,7 +71,7 @@ namespace KHSave.Archives
             {
                 stream.Position = baseOffset;
                 entry.Data = new byte[entry.Length];
-                stream.Read(entry.Data, 0, (int)entry.Length);
+                stream.ReadExactly(entry.Data, 0, (int)entry.Length);
 
                 baseOffset += _stride;
             }

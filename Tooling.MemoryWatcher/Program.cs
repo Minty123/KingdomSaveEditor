@@ -108,7 +108,7 @@ namespace Tooling.MemoryWatcher
                 var sb = new StringBuilder(0x1000);
 
                 stream.Position = 0;
-                stream.Read(buffer, 0, (int)length);
+                stream.ReadExactly(buffer, 0, (int)length);
 
                 while (!isSupposedToExit)
                 {
@@ -117,7 +117,7 @@ namespace Tooling.MemoryWatcher
                     lock (stream)
                     {
                         stream.Position = 0;
-                        stream.Read(current);
+                        stream.ReadExactly(current);
                     }
 
                     if (isWatchRunning)

@@ -58,7 +58,7 @@ namespace KHSave.Archives
             var header = BinaryMapping.ReadObject<Header>(stream);
             var len = stream.Length - stream.Position;
             var buff = new byte[len];
-            stream.Read(buff, 0, (int)len);
+            stream.ReadExactly(buff, 0, (int)len);
 
             rc4Crypt(buff, (int)len);
 
@@ -96,7 +96,7 @@ namespace KHSave.Archives
             using var inflater = new InflaterInputStream(compressedStream);
 
             var decomp = new byte[length];
-            inflater.Read(decomp);
+            inflater.ReadExactly(decomp);
 
             return decomp;
         }

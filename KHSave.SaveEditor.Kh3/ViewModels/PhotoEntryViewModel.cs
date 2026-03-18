@@ -111,7 +111,7 @@ namespace KHSave.SaveEditor.Kh3.ViewModels
 
                 _entry.Data = new byte[_entry.Data.Length];
                 _entry.Length = (int)stream.Length;
-                stream.Read(_entry.Data, 0, _entry.Data.Length);
+                stream.ReadExactly(_entry.Data);
             }
         }
 

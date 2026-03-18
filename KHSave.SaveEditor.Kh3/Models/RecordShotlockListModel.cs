@@ -39,7 +39,7 @@ namespace KHSave.SaveEditor.Kh3.Models
         {
         }
 
-        public IEnumerator<ShotlockRecordItemModel<T>> GetEnumerator()
+        public new IEnumerator<ShotlockRecordItemModel<T>> GetEnumerator()
         {
             return Items.GetEnumerator();
         }

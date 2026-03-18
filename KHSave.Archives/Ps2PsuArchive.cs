@@ -50,7 +50,7 @@ namespace KHSave.Archives
             {
                 var file = BinaryMapping.ReadObject<Entry>(stream);
                 file.Data = new byte[file.Length];
-                stream.Read(file.Data, 0, (int)file.Length);
+                stream.ReadExactly(file.Data, 0, (int)file.Length);
 
                 var offset_shift = file.Length % Alignment;
                 var pos2 = offset_shift > 0 ? stream.Position + Alignment - offset_shift : stream.Position;

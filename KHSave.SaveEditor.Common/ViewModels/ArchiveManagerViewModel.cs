@@ -44,7 +44,7 @@ namespace KHSave.SaveEditor.Common.ViewModels
                     using (var stream = File.OpenRead(fileName))
                     {
                         var data = new byte[stream.Length];
-                        stream.Read(data, 0, data.Length);
+                        stream.ReadExactly(data);
                         selectedEntry.ImportData(data);
                     }
 
