@@ -107,7 +107,7 @@ namespace KHSave.Lib3
             SaveKh3.Mapper.WriteObject(stream.SetPosition(0), this);
         }
 
-        internal static SaveKh3u109 ReadInternal(Stream stream) =>
-            SaveKh3.Mapper.ReadObject(stream.SetPosition(0), new SaveKh3u109()) as SaveKh3u109;
+        internal static SaveKh3PC ReadInternal(Stream stream) =>
+            SaveKh3.Mapper.ReadObject(stream.SetPosition(0), new SaveKh3PC()) as SaveKh3PC;
     }
 }
